@@ -1,0 +1,6 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/stepobiz/campofluido.stepo.biz/public_html/
+    - /opt/cpanel/ea-nodejs16/bin/npm install
+    - /opt/cpanel/ea-nodejs16/lib/node_modules/\@angular/cli/bin/ng.js build
+    - /bin/rsync -a --delete dist/campo-fluido/ $DEPLOYPATH
