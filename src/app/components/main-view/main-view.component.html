@@ -1,0 +1,45 @@
+<div id="wrapper">
+	<img *ngIf="!arenaVertical" src="assets/campo.jpg" id="arena" [style.height.px]="arenaSize">
+	<img *ngIf="arenaVertical" src="assets/campovert.png" id="arena" [style.height.px]="arenaSize">
+
+	<div *ngFor="let player of players" [hidden]="!player.visible" stalDraggable class="player" [initialPosition]="{x:300, y:100}">
+		<div class="hover"></div>
+		<img [style.height.px]="playersSize" [src]="'assets/players/'+ player.number +'.png'">
+	</div>
+
+	<div stalDraggable class="player" [initialPosition]="{x:100, y:100}">
+		<div class="hover"></div>
+		<img [style.height.px]="ballSize" [src]="'assets/palla.png'">
+	</div>
+</div>
+
+
+
+<div id="setting-button">
+	<button (click)="openSettings()">Settings</button>
+</div>
+<div id="settings" [hidden]="!visibleSetting">
+	<div class="settings-column">
+		Arena size:<br>
+		<input type="number" [(ngModel)]="arenaSize" /><br>
+		Arena vertical:<br>
+		<input type="checkbox" [(ngModel)]="arenaVertical" /><br>
+		Ball size:<br>
+		<input type="number" [(ngModel)]="ballSize" /><br>
+		Player size:<br>
+		<input type="number" [(ngModel)]="playersSize" /><br>
+		<br>
+		<button (click)="closeSettings()">Close</button>
+	</div>
+	<div class="settings-column">
+		<div *ngFor="let player of players">
+			{{ player.number }}
+			<input type="checkbox" [(ngModel)]="player.visible" /><br>
+		</div>
+	</div>
+</div>
+
+
+
+
+
