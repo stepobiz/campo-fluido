@@ -17,12 +17,12 @@ export class MainViewComponent implements OnInit {
 
 	visibleSetting: boolean = false;
 
-	arenaSize: number = 1000;
+	arenaSize: number = 632;
 	arenaVertical: boolean = false;
 
-	playersSize: number = 100;
+	playersSize: number = 140;
 
-	ballSize: number = 70;
+	ballSize: number = 50;
 
 	openSettings() {
 		this.visibleSetting = true;
@@ -83,6 +83,9 @@ export class MainViewComponent implements OnInit {
 			visible: false,
 		},{
 			number: 24,
+			visible: false,
+		},{
+			number: 29,
 			visible: false,
 		},{
 			number: 31,
